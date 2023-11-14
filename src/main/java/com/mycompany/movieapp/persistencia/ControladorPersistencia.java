@@ -51,10 +51,10 @@ public class ControladorPersistencia {
    public List<Movie> buscarPeliculasFiltradas(String filtro, String valor, int anioInicio, int anioFin) {
     EntityManager entityManager = peliJpa.getEntityManager();
 
-    // Construye la consulta JPQL base
+
     String jpql = "SELECT m FROM Movie m WHERE ";
 
-    // Agrega las condiciones según los filtros proporcionados
+
     if (!"Titulo".equals(filtro)) if ("Director".equals(filtro)) {
         jpql += "m.director LIKE :valor ";
     } else if ("Anio".equals(filtro)) {
@@ -63,10 +63,10 @@ public class ControladorPersistencia {
         jpql += "m.titulo LIKE :valor ";
         }
 
-    // Crea la consulta JPQL final
+
     Query query = entityManager.createQuery(jpql, Movie.class);
 
-    // Establece los parámetros según los filtros y valores proporcionados
+
     if ("Titulo".equals(filtro) || "Director".equals(filtro)) {
         query.setParameter("valor", "%" + valor + "%");
     } else if ("Anio".equals(filtro)) {
@@ -74,7 +74,7 @@ public class ControladorPersistencia {
         query.setParameter("anioFin", anioFin);
     }
 
-    // Ejecuta la consulta y retorna el resultado
+
     return query.getResultList();
 } 
     
