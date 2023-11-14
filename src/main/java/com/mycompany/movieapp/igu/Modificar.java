@@ -223,9 +223,6 @@ public class Modificar extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        VerPeliculas pantalla = new VerPeliculas();
-        pantalla.setVisible(true);
-        pantalla.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
