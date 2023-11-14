@@ -256,7 +256,7 @@ public class VerPeliculas extends javax.swing.JFrame {
 
         @Override
         public void changedUpdate(javax.swing.event.DocumentEvent evt) {
-            // No necesario para campos de texto
+            
         }
     });
     }
@@ -267,10 +267,8 @@ public class VerPeliculas extends javax.swing.JFrame {
         int anioInicio = (int) spRangoAnioUno.getValue();
         int anioFin = (int) spRangoAnioDos.getValue();
 
-        // Llama al método de tu controlador que realiza la búsqueda
         List<Movie> resultadoBusqueda = control.buscarPeliculasFiltradas(filtro, valor, anioInicio, anioFin);
 
-        // Llama al método cargarTabla con la lista resultante de la búsqueda
         cargarTablaFiltrada(resultadoBusqueda);
     }
 
@@ -300,21 +298,21 @@ public class VerPeliculas extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void cargarTabla() {
-        //definir el modelo de la tabla
+        //Definir el modelo de la tabla
         DefaultTableModel disenioTabla = new DefaultTableModel(){
             @Override
             public boolean isCellEditable (int row,int column){
                 return false;
             }
         };
-        //nombres de las columnas
+        //Nombres de las columnas
         String titulos[]={"ID","Título","Director","Año","Duración","Género"};
         disenioTabla.setColumnIdentifiers(titulos);
         
-        //carga de los datos desde la bbdd
+        //Carga de los datos desde la bbdd
         List<Movie> listaPeliculas = control.traerPeliculas();
         
-        //recorrer lista y mostrar cada uno de los elementos
+        //Recorrer lista y mostrar cada uno de los elementos
         if(listaPeliculas!=null){
             for(Movie pelis : listaPeliculas){
                 Object[] objeto = {pelis.getId(),pelis.getTitulo(),pelis.getDirector(),pelis.getAnio(),pelis.getDuracion(),pelis.getGenero()};
