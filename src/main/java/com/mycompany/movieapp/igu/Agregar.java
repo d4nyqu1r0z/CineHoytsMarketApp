@@ -219,9 +219,6 @@ public class Agregar extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-        Principal pantalla = new Principal();
-        pantalla.setVisible(true);
-        pantalla.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
